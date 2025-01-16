@@ -33,6 +33,7 @@ public class GripperSubsystem extends SubsystemBase {
         servoClaw.setPosition(isPickup?pickupAngle:0);
         servo2.setPosition(isPickup?pickupAngle:0);
         dashboard.addData("gripperOpen: ", isOpen);
+
     }
     public Command CloseGripper(){
         return new InstantCommand(()->isOpen = false);
