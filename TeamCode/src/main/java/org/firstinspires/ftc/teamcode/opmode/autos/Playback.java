@@ -12,7 +12,6 @@ import org.firstinspires.ftc.teamcode.utils.BT.BTRecordedController;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 public abstract class Playback extends PeriodicOpMode {
@@ -35,8 +34,8 @@ public abstract class Playback extends PeriodicOpMode {
             controller=new BTRecordedController(gamepad1,log,maxIterations);
             controller2 = new BTRecordedController(gamepad2,log,maxIterations);
             m_robot=new RobotContainer(hardwareMap,controller,controller2);
-            m_robot.m_gripper.rotServo2.setPosition(score);
-            m_robot.m_gripper.servoClaw.setPosition(closeClaw);
+            m_robot.m_gripper.servoClaw.setPosition(score);
+            m_robot.m_gripper.pivotServo.setPosition(closeClaw);
         } catch (IOException e) {
             dashboardTelemetry.addData("error data:",e.toString());
             dashboardTelemetry.update();

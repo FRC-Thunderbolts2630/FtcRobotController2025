@@ -5,7 +5,6 @@ import static org.firstinspires.ftc.teamcode.utils.BT.BTController.Buttons.*;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.arcrobotics.ftclib.command.Command;
-import com.arcrobotics.ftclib.command.ConditionalCommand;
 import com.arcrobotics.ftclib.command.InstantCommand;
 import com.arcrobotics.ftclib.command.button.Trigger;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -53,9 +52,9 @@ public class RobotContainer extends com.arcrobotics.ftclib.command.Robot {
         m_gripper = new GripperSubsystem(map);
         m_chassis = new ChassisSubsystem(map);
         m_pivot = new PivotSubsystem(map, m_extension::getArmLength,m_chassis::getAcc);
-        m_gripper.servoClaw.setPosition(0);
+        m_gripper.pivotServo.setPosition(score);
         m_gripper.isOpen = false;
-        m_gripper.rotServo2.setPosition(score);
+        m_gripper.servoClaw.setPosition(score);
         resetGyro();
         configureBinds();
 

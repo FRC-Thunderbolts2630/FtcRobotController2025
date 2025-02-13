@@ -105,7 +105,7 @@ public class ChassisSubsystem extends SubsystemBase {
     }
     public double applyFeedForward(double ks, double kv, double velocity){
 
-        double s=velocity<0.01? 0: ks*Math.signum(velocity);// this is from kookybotz
+        double s = velocity<0.01? 0: ks*Math.signum(velocity);// this is from kookybotz
         return s + kv * velocity;
     }
     private void drive(double frontVel, double sidewayVel, double rotation) {

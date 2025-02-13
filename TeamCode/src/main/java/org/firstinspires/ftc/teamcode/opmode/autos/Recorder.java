@@ -28,7 +28,7 @@ public abstract class Recorder extends PeriodicOpMode {
             File log = AppUtil.getInstance().getSettingsFile(file_name);
             controller=new BTRecordingController(gamepad1,log,maxIterations);
             m_robot=new RobotContainer(hardwareMap,controller,controller2);
-            m_robot.m_gripper.rotServo2.setPosition(score);
+            m_robot.m_gripper.servoClaw.setPosition(score);
             enable();
 
 

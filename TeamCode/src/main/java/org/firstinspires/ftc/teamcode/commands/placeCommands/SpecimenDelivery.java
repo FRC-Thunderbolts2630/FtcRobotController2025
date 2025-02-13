@@ -29,8 +29,6 @@ public class SpecimenDelivery extends SequentialCommandGroup{
                 new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
                 new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
                 gripper.openClaw(),
-                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
-                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
                 new IdleFromScore(extension,pivot,chassis,gripper)
         );
     }

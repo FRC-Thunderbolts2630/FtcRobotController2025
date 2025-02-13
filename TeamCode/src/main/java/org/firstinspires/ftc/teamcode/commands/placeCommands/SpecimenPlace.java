@@ -1,8 +1,11 @@
 package org.firstinspires.ftc.teamcode.commands.placeCommands;
 
+import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.eStates.closed;
 import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.eStates.half;
+import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.eStates.quarter;
 import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.pStates.midpoint;
 import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.pStates.specimenPlace;
+import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.pStates.specimenScore;
 import static org.firstinspires.ftc.teamcode.utils.BT.BTController.Buttons.BUMPER_LEFT;
 import static org.firstinspires.ftc.teamcode.utils.BT.BTController.Buttons.BUMPER_RIGHT;
 import static org.firstinspires.ftc.teamcode.utils.BT.BTController.Buttons.BUTTON_DOWN;
@@ -24,10 +27,42 @@ import org.firstinspires.ftc.teamcode.utils.BT.BTController;
 public class SpecimenPlace extends SequentialCommandGroup{
     public SpecimenPlace(ExtensionSubsystem extension, PivotSubsystem pivot, ChassisSubsystem chassis, GripperSubsystem gripper, BTController controller){
         super(
+//                pivot.setWithProfile(specimenPlace,80,300),
+//                new WaitCommand(500),
+//                extension.setExtension(closed),
+//                gripper.setSpecimenAim(),
+//                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
+//                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
+//                gripper.setSpecimenScore(),
+//                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
+//                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
+//                pivot.setWithProfile(specimenScore, 80, 300),
+//                new WaitCommand(300),
+//                gripper.openClaw()
+
+//                chassis.stopSlowDriving(),
+//                pivot.setWithProfile(specimenPlace,80,300),
+//                new WaitCommand(500),
+//                extension.setExtension(closed),
+//                gripper.setSpecimenScore(),
+//                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
+//                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
+//                gripper.setSpecimenAim(),
+//                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
+//                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
+//                gripper.openClaw()
+                chassis.stopSlowDriving(),
                 pivot.setWithProfile(specimenPlace,80,300),
+                new WaitCommand(500),
+                extension.setExtension(closed),
+                gripper.setSpecimenScore(),//changed to 0.4 from 1
                 new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
                 new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
-                gripper.openClaw()
+                extension.setExtension(quarter),
+                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
+                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
+                gripper.openClaw(),
+                extension.setExtension(closed)
         );
     }
 }

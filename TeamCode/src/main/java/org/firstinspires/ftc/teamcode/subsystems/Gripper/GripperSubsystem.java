@@ -12,19 +12,17 @@ import com.acmerobotics.dashboard.FtcDashboard;
 public class GripperSubsystem extends SubsystemBase {
 
     private Telemetry dashboard = FtcDashboard.getInstance().getTelemetry();
+    public Servo pivotServo;
     public Servo servoClaw;
-    Servo servo2;
-    Servo rotServo;
-    public Servo rotServo2;
     public boolean isOpen = false;
     public boolean isPickup;
+
     public GripperSubsystem(HardwareMap map){
-        rotServo = map.servo.get("rotServo");
-        rotServo2 = map.servo.get("servoRot");
-        servoClaw = map.servo.get("servoClaw");
+        servoClaw = map.servo.get("servoRot");
+        pivotServo = map.servo.get("servoClaw");
         register();
-        rotServo.getController().pwmEnable();
         servoClaw.getController().pwmEnable();
+        pivotServo.getController().pwmEnable();
 
 
 
@@ -32,20 +30,22 @@ public class GripperSubsystem extends SubsystemBase {
     }
     public void periodic() {
         servoClaw.setPosition(isOpen?openClaw:closeClaw);
-        dashboard.addData("gripperOpen: ", isOpen);
+//            pivotServo.setPosition(pos);
+//            servoClaw.setPosition(clawpos);
+            dashboard.addData("gripperOpen: ", isOpen);
     }
 
     public Command setPickup(){
-        return new InstantCommand(()->rotServo2.setPosition(pickup));
+        return new InstantCommand(()-> pivotServo.setPosition(pickup));
     }
     public Command setPickupFromWall(){
-        return new InstantCommand(()->rotServo2.setPosition(pickupFromWall));
+        return new InstantCommand(()-> pivotServo.setPosition(pickupFromWall));
     }
     public Command setScore(){
-        return new InstantCommand(()->rotServo2.setPosition(score));
+        return new InstantCommand(()-> pivotServo.setPosition(score));
     }
     public Command setMid(){
-        return new InstantCommand(()->rotServo2.setPosition(0));
+        return new InstantCommand(()-> pivotServo.setPosition(0));
     }
 
     public Command toggleClaw() {
@@ -60,9 +60,10 @@ public class GripperSubsystem extends SubsystemBase {
 
 
     public Command setSpecimenScore() {
-        return new InstantCommand(()->rotServo2.setPosition(0));
+        return new InstantCommand(()-> pivotServo.setPosition(0.4));
     }
-    public Command setSpecimenPlace() {
-        return new InstantCommand(()->rotServo2.setPosition(0.8));
+    public Command setSpecimenAim() {
+        return new InstantCommand(()-> pivotServo.setPosition(0.6));
     }
+
 }

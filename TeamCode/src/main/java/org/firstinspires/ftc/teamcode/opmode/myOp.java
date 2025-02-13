@@ -5,7 +5,6 @@ import static org.firstinspires.ftc.teamcode.subsystems.Gripper.GripperConstants
 
 import com.arcrobotics.ftclib.command.CommandOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.RobotContainer;
 import org.firstinspires.ftc.teamcode.utils.BT.BTController;
@@ -17,8 +16,8 @@ public class myOp extends CommandOpMode {
     @Override
     public void initialize() {
         m_robot= new RobotContainer(hardwareMap, new BTController(gamepad1), new BTController(gamepad2));
-        m_robot.m_gripper.servoClaw.setPosition(closeClaw);
-        m_robot.m_gripper.rotServo2.setPosition(score);
+        m_robot.m_gripper.pivotServo.setPosition(closeClaw);
+        m_robot.m_gripper.servoClaw.setPosition(score);
         enable();
 
     }
