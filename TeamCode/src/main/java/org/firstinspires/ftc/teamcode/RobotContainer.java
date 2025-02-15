@@ -48,13 +48,13 @@ public class RobotContainer extends com.arcrobotics.ftclib.command.Robot {
         SpecimenDelivery = new Trigger(m_controller.m_buttonsSuppliers[DPAD_LEFT.ordinal()]);
         Score = new Trigger(m_controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]);
         Intake = new Trigger(m_controller.m_buttonsSuppliers[BUMPER_RIGHT.ordinal()]);
+
         m_extension = new ExtensionSubsystem(map);
         m_gripper = new GripperSubsystem(map);
         m_chassis = new ChassisSubsystem(map);
         m_pivot = new PivotSubsystem(map, m_extension::getArmLength,m_chassis::getAcc);
         m_gripper.pivotServo.setPosition(score);
         m_gripper.isOpen = false;
-        m_gripper.servoClaw.setPosition(score);
         resetGyro();
         configureBinds();
 
