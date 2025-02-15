@@ -97,10 +97,10 @@ public class ChassisSubsystem extends SubsystemBase {
 
     public void setMotors(double FL, double FR, double BL, double BR) {
         double compensation = 12.0 / voltageSensor.getVoltage();
-        motor_FR.set(compensation * applyFeedForward(ks, kv, FR));
-        motor_FL.set(compensation * applyFeedForward(ks, kv, FL));
-        motor_BR.set(compensation * applyFeedForward(ks, kv, BR));
-        motor_BL.set(compensation * applyFeedForward(ks, kv, BL));
+        motor_FR.set(compensation * FR);
+        motor_FL.set(compensation * FL);
+        motor_BR.set(compensation * BR);
+        motor_BL.set(compensation * BL);
         dashboardTelemetry.addData("compensation", compensation);
     }
     public double applyFeedForward(double ks, double kv, double velocity){

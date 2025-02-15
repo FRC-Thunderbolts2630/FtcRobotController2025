@@ -18,8 +18,8 @@ public class GripperSubsystem extends SubsystemBase {
     public boolean isPickup;
 
     public GripperSubsystem(HardwareMap map){
-        servoClaw = map.servo.get("servoClaw");
-        pivotServo = map.servo.get("servoRot");
+        servoClaw = map.servo.get("servoRot");
+        pivotServo = map.servo.get("servoClaw");
         register();
         servoClaw.getController().pwmEnable();
         pivotServo.getController().pwmEnable();
