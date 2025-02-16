@@ -45,10 +45,10 @@ public class ArmConstants {
     }
     public static class pStates{
         public static double wingPlace = 10;
-        public static double midpoint = 8;
+        public static double midpoint = 6;
         public static double scoreMidpoint = 80;
-        public static double up = 10;
-        public static double pickup = 2;
+        public static double up = 8;
+        public static double pickup = -2;
         public static double score = 93;
         public static double specimenPlace = 125;
         public static double specimenScore = 105;

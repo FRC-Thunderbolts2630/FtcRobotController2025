@@ -29,9 +29,9 @@ public class GripperSubsystem extends SubsystemBase {
 
     }
     public void periodic() {
-        servoClaw.setPosition(isOpen?openClaw:closeClaw);
-//            pivotServo.setPosition(pos);
-//            servoClaw.setPosition(clawpos);
+//        servoClaw.setPosition(isOpen?openClaw:closeClaw);
+            pivotServo.setPosition(pos);
+            servoClaw.setPosition(clawpos);
             dashboard.addData("gripperOpen: ", isOpen);
     }
 

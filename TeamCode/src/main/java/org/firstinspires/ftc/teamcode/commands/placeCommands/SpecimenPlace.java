@@ -27,19 +27,7 @@ import org.firstinspires.ftc.teamcode.utils.BT.BTController;
 public class SpecimenPlace extends SequentialCommandGroup{
     public SpecimenPlace(ExtensionSubsystem extension, PivotSubsystem pivot, ChassisSubsystem chassis, GripperSubsystem gripper, BTController controller){
         super(
-//                pivot.setWithProfile(specimenPlace,80,300),
-//                new WaitCommand(500),
-//                extension.setExtension(closed),
-//                gripper.setSpecimenAim(),
-//                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
-//                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
-//                gripper.setSpecimenScore(),
-//                new WaitUntilCommand(controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()]),
-//                new WaitUntilCommand(()->!controller.m_buttonsSuppliers[BUMPER_LEFT.ordinal()].getAsBoolean()),
-//                pivot.setWithProfile(specimenScore, 80, 300),
-//                new WaitCommand(300),
-//                gripper.openClaw()
-
+//
 //                chassis.stopSlowDriving(),
 //                pivot.setWithProfile(specimenPlace,80,300),
 //                new WaitCommand(500),

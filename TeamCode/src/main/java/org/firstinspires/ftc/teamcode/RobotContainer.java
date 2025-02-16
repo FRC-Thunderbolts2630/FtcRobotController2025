@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-import static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.pStates.*;
+import  static org.firstinspires.ftc.teamcode.subsystems.Arm.ArmConstants.pStates.*;
 import static org.firstinspires.ftc.teamcode.utils.BT.BTController.Buttons.*;
 
 import com.acmerobotics.dashboard.FtcDashboard;

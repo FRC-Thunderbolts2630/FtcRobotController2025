@@ -60,9 +60,10 @@ public class ExtensionSubsystem extends SubsystemBase {
     public void periodic() {
         updateTelemetry();
         updateValues();
-        if(m_extensionPID.atGoal()){
-            setMotors(0);
-        } else{setMotors(m_extensionPID.calculate(currentArmLength));}
+//        if(m_extensionPID.atGoal()){
+//            setMotors(0);
+//        } else{
+        setMotors(m_extensionPID.calculate(currentArmLength));//{
     }
 
     private void updateValues() {
